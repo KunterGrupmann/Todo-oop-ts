@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express"; 
+import e, { Request, Response, NextFunction } from "express"; 
 import { Todo } from "../models/todo";
 const todos: Todo[] =[]
 
@@ -15,3 +15,14 @@ export const createTodo = (req: Request, res: Response, next: NextFunction) =>{
         console.log(error)
     } 
 }
+ 
+export const getTodos = (req: Request, res: Response, next: NextFunction) =>{
+    try{
+        res.status(201).json({
+            tasks:todos
+        })
+    } catch(error) {
+        console.log(error)
+    } 
+} 
+
